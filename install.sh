@@ -7,13 +7,24 @@ sudo apt-get install -y vim curl python-software-properties
 sudo add-apt-repository -y ppa:ondrej/php5
 sudo apt-get update
 
-sudo apt-get install -y php5 apache2 libapache2-mod-php5 php5-curl php5-gd php5-mcrypt php5-readline mysql-server-5.5 php5-mysql git-core php5-xdebug node ghostscript imagemagick
+sudo apt-get install -y php5 apache2 libapache2-mod-php5 php5-curl php5-gd php5-mcrypt php5-readline mysql-server-5.5 php5-mysql git-core php5-xdebug node ghostscript imagemagick zsh vim-tiny
 
 cat << EOF | sudo tee -a /etc/php5/mods-available/xdebug.ini
 xdebug.scream=1
 xdebug.cli_color=1
 xdebug.show_local_vars=1
 EOF
+
+sudo chsh vagrant -s /usr/bin/zsh
+
+git clone http://github.com/leonkunert/dotfiles /home/vagrant/dotfiles
+ln -s /home/vagrant/dotfiles/.zsh /home/vagrant/.zsh
+ln -s /home/vagrant/dotfiles/.zshrc /home/vagrant/.zshrc
+ln -s /home/vagrant/dotfiles/.zlogin /home/vagrant/.zlogin
+ln -s /home/vagrant/dotfiles/.vim /home/vagrant/.vim
+ln -s /home/vagrant/dotfiles/.vimrc /home/vagrant/.vimrc
+ln -s /etc/apache2 /home/vagrant/apache2
+mkdir /home/vagrant/.vimbackup
 
 sudo a2enmod rewrite
 

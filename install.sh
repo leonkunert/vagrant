@@ -23,7 +23,7 @@ ln -s /home/vagrant/dotfiles/.zshrc /home/vagrant/.zshrc
 ln -s /home/vagrant/dotfiles/.zlogin /home/vagrant/.zlogin
 ln -s /home/vagrant/dotfiles/.vim /home/vagrant/.vim
 ln -s /home/vagrant/dotfiles/.vimrc /home/vagrant/.vimrc
-ln -s /etc/apache2 /home/vagrant/apache2
+ln -s /etc/apache2 /var/www/config
 mkdir /home/vagrant/.vimbackup
 
 sudo a2enmod rewrite

@@ -25,7 +25,7 @@ ln -s /home/vagrant/dotfiles/.zlogin /home/vagrant/.zlogin
 ln -s /home/vagrant/dotfiles/.vim /home/vagrant/.vim
 ln -s /home/vagrant/dotfiles/.vimrc /home/vagrant/.vimrc
 cd /home/vagrant/dotfiles && sudo git submodule update --init
-mkdir 0777 /home/vagrant/.vimbackup
+mkdir /home/vagrant/.vimbackup -m 0777
 
 sudo npm update -g
 sudo npm install -g grunt-cli

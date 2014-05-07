@@ -1,3 +1,5 @@
 .vagrant/
 www/*
 config/*
+!config/.hidden
+!www/.hidden

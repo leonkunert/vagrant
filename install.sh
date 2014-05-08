@@ -14,6 +14,7 @@ cat << EOF | sudo tee -a /etc/php5/mods-available/xdebug.ini
 xdebug.scream=1
 xdebug.cli_color=1
 xdebug.show_local_vars=1
+xdebug.var_display_max_data=2048
 EOF
 
 sudo chsh vagrant -s /usr/bin/zsh

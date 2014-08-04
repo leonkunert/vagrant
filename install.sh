@@ -8,7 +8,7 @@ sudo add-apt-repository -y ppa:ondrej/php5
 sudo add-apt-repository -y ppa:chris-lea/node.js
 sudo apt-get update
 
-sudo apt-get install -y php5 apache2 libapache2-mod-php5 php5-curl php5-gd php5-mcrypt php5-readline mysql-server-5.5 php5-mysql git-core php5-xdebug python-software-properties python g++ make nodejs ghostscript imagemagick zsh vim-nox
+sudo apt-get install -y php5 apache2 libapache2-mod-php5 php5-curl php5-gd php-pear php5-mcrypt php5-dev php5-readline mysql-server-5.5 php5-mysql git-core php5-xdebug python-software-properties python g++ make nodejs ghostscript imagemagick zsh vim-nox libmagickwand-dev
 
 cat << EOF | sudo tee -a /etc/php5/mods-available/xdebug.ini
 xdebug.scream=1
@@ -16,6 +16,8 @@ xdebug.cli_color=1
 xdebug.show_local_vars=1
 xdebug.var_display_max_data=2048
 EOF
+
+sudo pecl install imagick
 
 sudo chsh vagrant -s /usr/bin/zsh
 
@@ -39,6 +41,8 @@ sed -i "s/AllowOverride None/AllowOverride All/g" /etc/apache2/apache2.conf
 sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php5/apache2/php.ini
 sed -i "s/display_errors = .*/display_errors = On/" /etc/php5/apache2/php.ini
 sed -i "s/disable_functions = .*/disable_functions = /" /etc/php5/cli/php.ini
+
+cat extension=imagick.so >> /etc/php5/apache2/php.ini
 
 sudo service apache2 restart
 
